@@ -1,0 +1,32 @@
+// 共通化プロパティ、関数を定義するファイル
+
+// プロパティの設定
+
+// FontSizeプロパティ
+$title-font-size:1.4rem;
+$subtitle-font-size:1rem;
+$body-font-size:.9rem;
+$text-font-size:.6rem;
+
+
+// 背景色を生成
+@mixin createColor($color) {
+    background-color: $color
+}
+
+// Absoluteの絶対値を生成
+@mixin absPosition ($top: auto, $right: auto, $bottom: auto, $left: auto) {
+    position: absolute;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+}
+
+//ベンダープレフレックスの付与
+@mixin putPrefix($property, $value) {
+    @each $prefix in -webkit-,　-moz-, -ms-,　-o-,
+    '' {
+        #{$prefix}#{$property}: $value;
+    }
+}
